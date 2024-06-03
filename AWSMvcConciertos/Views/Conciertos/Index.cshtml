@@ -1,0 +1,28 @@
+﻿@model List<Evento>
+
+<h1>AWS Conciertos</h1>
+
+<p>
+    <a asp-controller="Conciertos"
+       asp-action="FilterEventos"
+       class="btn btn-success mt-3">
+        Filtrar por Categoría
+    </a>
+</p>
+
+<div class="row">
+    @foreach (Evento evento in Model)
+    {
+        <div class="col-3">
+            <div class="card mb-3">
+                <img src="~/images/@evento.Imagen"
+                     class="card-img-top" />
+                <div class="card-body">
+                    <h5 class="card-title">@evento.Nombre</h5>
+                    <p class="card-subtitle">Artista: @evento.Artista</p>
+                    <p class="card-text">Categoría: @evento.IdCategoria</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
