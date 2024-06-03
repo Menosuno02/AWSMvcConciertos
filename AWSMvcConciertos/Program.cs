@@ -1,6 +1,14 @@
+using AWSMvcConciertos.Helpers;
+using AWSMvcConciertos.Models;
 using AWSMvcConciertos.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+string jsonSecrets =
+    await HelperSecretManager.GetSecretsAsync();
+KeysModel keys = JsonConvert.DeserializeObject<KeysModel>(jsonSecrets);
+builder.Services.AddSingleton<KeysModel>(x => keys);
 
 // Add services to the container.
 builder.Services.AddTransient<ServiceApiConciertos>();

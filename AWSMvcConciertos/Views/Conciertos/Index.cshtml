@@ -1,6 +1,6 @@
 ﻿@model List<Evento>
 @{
-    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+    string UrlBucket = keys.BucketUrl;
 }
 
 <h1>AWS Conciertos</h1>
