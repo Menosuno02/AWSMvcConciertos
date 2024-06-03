@@ -1,4 +1,7 @@
 ﻿@model List<Evento>
+@{
+    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+}
 
 <h1>AWS Conciertos</h1>
 
@@ -15,7 +18,7 @@
     {
         <div class="col-3">
             <div class="card mb-3">
-                <img src="~/images/@evento.Imagen"
+                <img src="@UrlBucket@evento.Imagen"
                      class="card-img-top" />
                 <div class="card-body">
                     <h5 class="card-title">@evento.Nombre</h5>
